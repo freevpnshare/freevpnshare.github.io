@@ -1,0 +1,447 @@
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header-search {
+        padding: 15px 0px;
+    }
+}
+
+
+/*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 599px) and (max-width: 767px) {
+    .logo {
+        text-align: center;
+    }
+    .cart-content-right {
+        padding-bottom: 5px;
+    }
+    .mg {
+        margin: 0px 0px;
+    }
+    .menu-area-main {
+        height: 256px;
+        overflow-y: auto;
+    }
+    .megamenu>.row [class*="col-"] {
+        padding: 0px;
+    }
+    .menu-area-main .megamenu .men-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .women-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .el-cat {
+        padding: 0px 15px;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        height: 19px;
+    }
+    .category-box.women-box {
+        display: none;
+    }
+    .cart-box {
+        display: inline-block;
+        margin: 0px 30px;
+    }
+    .wish-box {
+        float: none;
+        margin: 0px 30px;
+        display: inline-block;
+    }
+    .menu-add {
+        display: none;
+    }
+    .category-box {
+        display: none;
+    }
+    .mean-container .mean-nav ul li ol {
+        padding: 0px;
+    }
+    .mean-container .mean-nav ul li a {
+        padding: 10px 20px;
+        width: 94.8%;
+    }
+    .mean-container .mean-nav ul li li a {
+        width: 92%;
+        padding: 1em 4%;
+    }
+    .mean-container .mean-nav ul li li li a {
+        width: 100%;
+    }
+    .header-search {
+        padding: 15px 0px;
+    }
+    #collapseFilter.d-md-block {
+        padding: 30px 0px;
+    }
+}
+
+
+/*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 280px) and (max-width: 599px) {
+    .cart-content-right {
+        padding-bottom: 5px;
+    }
+    .megamenu>.row [class*="col-"] {
+        padding: 0px;
+    }
+    .menu-area-main .megamenu .men-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .women-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .el-cat {
+        padding: 0px 15px;
+    }
+    .mean-container .mean-nav ul li a {
+        padding: 1em 4%;
+        width: 92%;
+    }
+    .mean-container .mean-nav ul li li a {
+        width: 90%;
+        padding: 1em 5%;
+    }
+    .mean-container .sub-full.megamenu-categories ol li a {
+        padding: 5px 0px;
+        text-transform: capitalize;
+        width: 100%;
+    }
+    .megamenu .sub-full.megamenu-categories .women-box .banner-up-text a {
+        width: auto;
+        border: none;
+        float: none;
+    }
+    .menu-area-main {
+        height: 45px;
+        overflow-y: auto;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        top: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding: 0px;
+    }
+    .header_section {
+        background-size: 100% 100%;
+    }
+    .banner_section {
+        padding: 90px 0px 120px 0px;
+        background-size: cover;
+    }
+    .banner_taital_main {
+        padding-top: 30px;
+    }
+    .house_icon {
+        min-height: 115px;
+    }
+    .choose_taital {
+        padding-left: 0;
+        padding-top: 60px;
+    }
+    .choose_taital_main {
+        padding-top: 25px;
+        padding-left: 0px;
+    }
+    .focused_text {
+        font-size: 28px;
+    }
+    .choose_right {
+        padding-left: 10px;
+    }
+    .testimonial_section_2 {
+        width: 100%;
+    }
+    .testimonial_right {
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    .header_section {
+        background-size: cover;
+        border-bottom: 1px solid #2d52aa;
+    }
+    .logo {
+        width: auto;
+    }
+    .banner_taital {
+        width: 100%;
+        font-size: 50px;
+        line-height: 60px;
+    }
+    .banner_taital_main {
+        padding-top: 30px;
+    }
+    .house_icon {
+        min-height: 85px;
+    }
+    .service_box {
+        padding: 30px 10px;
+    }
+    .corporate_text {
+        font-size: 20px;
+    }
+    p.chunks_text {
+        font-size: 15px;
+    }
+    .about_taital {
+        font-size: 30px;
+    }
+    .choose_taital {
+        font-size: 30px;
+        padding-left: 0px;
+    }
+    .choose_taital_main {
+        padding-top: 20px;
+        padding-left: 0px;
+    }
+    .focused_text {
+        font-size: 20px;
+    }
+    .choose_right {
+        padding-left: 10px;
+    }
+    .choose_text {
+        font-size: 13px;
+    }
+    .testimonial_section_2 {
+        width: 100%;
+    }
+    .many_text {
+        font-size: 14px;
+    }
+    .client_img {
+        width: 90%;
+        padding-top: 40px;
+        padding-left: 0px;
+    }
+    .contact_img {
+        width: 90%;
+    }
+    .useful_text {
+        padding-top: 20px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    .header_section {
+        background-size: cover;
+        border-bottom: 1px solid #2d52aa;
+    }
+    .logo {
+        width: auto;
+    }
+    .banner_taital_main {
+        width: 100%;
+        padding-top: 0px;
+    }
+    .banner_taital {
+        width: 100%;
+        font-size: 50px;
+        line-height: 60px;
+    }
+    .banner_img img {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .services_taital {
+        font-size: 40px;
+    }
+    .services_section {
+        height: auto;
+        margin-bottom: 0px;
+    }
+    .readmore_button a {
+        background-color: #fefefe;
+        color: #222222;
+    }
+    .services_section_2 {
+        padding: 30px 0px 0px 0px;
+    }
+    .house_icon {
+        height: auto;
+    }
+    .about_taital {
+        font-size: 40px;
+    }
+    .about_section .row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .about_img {
+        margin-top: 30px;
+    }
+    .choose_taital {
+        font-size: 40px;
+        padding-left: 0;
+    }
+    .choose_taital_main {
+        padding-top: 30px;
+        padding-left: 0;
+    }
+    .focused_text {
+        font-size: 20px;
+    }
+    .choose_img {
+        margin-top: 40px;
+    }
+    .testimonial_taital {
+        font-size: 40px;
+    }
+    .testimonial_section_2 {
+        width: 100%;
+        display: block;
+    }
+    .testimonial_left {
+        width: 100%;
+    }
+    .testimonial_right {
+        width: 100%;
+    }
+    .client_img {
+        padding-left: 0px;
+    }
+    .contact_taital {
+        font-size: 40px;
+    }
+    .working_text {
+        font-size: 40px;
+    }
+    .process_box {
+        display: block;
+    }
+    .booking_bt {
+        padding-top: 20px;
+        display: flex;
+    }
+    .useful_text {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    .header_section {
+        background-size: cover;
+        border-bottom: 1px solid #2d52aa;
+    }
+    .logo {
+        width: auto;
+    }
+    .banner_taital_main {
+        width: 100%;
+        padding-top: 0px;
+    }
+    .banner_taital {
+        width: 100%;
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .banner_img img {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .services_taital {
+        font-size: 25px;
+    }
+    .services_section {
+        height: auto;
+        margin-bottom: 0px;
+    }
+    .readmore_button a {
+        background-color: #fefefe;
+        color: #222222;
+    }
+    .services_section_2 {
+        padding: 30px 0px 0px 0px;
+    }
+    .house_icon {
+        height: auto;
+    }
+    .about_taital {
+        font-size: 25px;
+    }
+    .about_section .row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .about_img {
+        margin-top: 30px;
+    }
+    .choose_taital {
+        font-size: 25px;
+        padding-left: 0;
+    }
+    .choose_taital_main {
+        padding-top: 30px;
+        padding-left: 0;
+    }
+    .focused_text {
+        font-size: 20px;
+    }
+    .choose_img {
+        margin-top: 40px;
+    }
+    .testimonial_taital {
+        font-size: 25px;
+    }
+    .testimonial_section_2 {
+        width: 100%;
+        display: block;
+    }
+    .testimonial_left {
+        width: 100%;
+    }
+    .testimonial_right {
+        width: 100%;
+    }
+    .client_img {
+        padding-left: 0px;
+    }
+    .contact_taital {
+        font-size: 25px;
+    }
+    .working_text {
+        font-size: 20px;
+    }
+    .process_box {
+        display: block;
+    }
+    .booking_bt {
+        padding-top: 20px;
+        display: flex;
+    }
+    .useful_text {
+        padding-top: 20px;
+    }
+}

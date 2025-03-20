@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://freevpnshare.github.io/news/article-76875.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/website/img/clashfans/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>MyBatis-Plus 高级功能多租户功能实现</title>
+        <meta name="description" content="一、引言 小编先解释一下什么叫多租户，什么场景下使用多租户。 多租户是一种软件架构技术，在多用户的环境下，共有同一套系统，并且要注意数据之间的隔离性。 举个实际例子：小编曾经开发过一套H5程序，这套程" />
+    
+    <meta name="author" content="免费VPN分享 免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpnshare.github.io/news/article-76875.htm" />
+    <meta property="og:site_name" content="免费VPN分享 免费节点订阅官网" />
+    <meta property="og:title" content="MyBatis-Plus 高级功能多租户功能实现" />
+    <meta property="og:image" content="https://freevpnshare.github.io/uploads/20240307/ac4ee03ae5181c96617ccf21fde46fbf.webp" />
+        <meta property="og:release_date" content="2025-03-19T09:09:20" />
+    <meta property="og:updated_time" content="2025-03-19T09:09:20" />
+        <meta property="og:description" content="一、引言 小编先解释一下什么叫多租户，什么场景下使用多租户。 多租户是一种软件架构技术，在多用户的环境下，共有同一套系统，并且要注意数据之间的隔离性。 举个实际例子：小编曾经开发过一套H5程序，这套程" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MyBatis-Plus 高级功能多租户功能实现">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15XX2VLK02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15XX2VLK02');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">免费VPN分享</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">MyBatis-Plus 高级功能多租户功能实现 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3>一、引言</h3> <p style="text-indent:33px;">小编先解释一下什么叫多租户，什么场景下使用多租户。</p> <p style="text-indent:33px;">多租户是一种软件架构技术，在多用户的环境下，共有同一套系统，并且要注意数据之间的<span style="color:#f33b45;">隔离性</span>。</p> <p style="text-indent:33px;"><span style="color:#86ca5e;">举个实际例子：</span>小编曾经开发过一套H5程序，这套程序应用在不同医院的APP上，当医院患者下载医院APP，并且进入相对应的H5页面，APP则会把用户相关数据传输到小编这里。在传输的时候需要带上医院标识（租户ID），以便小编将数据进行隔离。</p> <p style="text-indent:33px;">当不同的租户使用同一套程序，这里就需要考虑一个数据隔离的情况。</p> <p style="text-indent:33px;">数据隔离有三种方案：</p> <p style="text-indent:33px;">1、<span style="color:#86ca5e;">独立数据库</span>：简单来说就是一个租户使用一个数据库，这种数据隔离级别最高，安全性最好，但是提高成本。</p> <p style="text-indent:33px;">2、<span style="color:#86ca5e;">共享数据库、隔离数据架构</span>：多租户使用同一个数据裤，但是每个租户对应一个Schema(数据库user)。</p> <p style="text-indent:33px;">3、<span style="color:#86ca5e;">共享数据库、共享数据架构</span>：使用同一个数据库，同一个Schema，但是在表中增加了<span style="color:#f33b45;">租户ID</span>的字段，这种共享数据程度最高，隔离级别最低。</p> <h3>二、具体实现</h3> <p style="text-indent:33px;">这里采用方案三，即<span style="color:#86ca5e;">共享数据库，共享数据架构</span>，因为这种方案服务器成本最低，但是提高了开发成本。</p> <p style="text-indent:33px;">所以MP就提供了一种多租户的解决方案，实现方式是基于分页插件进行实现的，具体实现代码如下：</p> <pre class="has"><code class="language-java">/**  * @Auther: IT贱男  * @Date: 2019/6/12 15:06  * @Description: MybatisPlus配置类  */ @Configuration public class MyBatisPlusConfig {       /**      * 分页插件      *      * @return      */     @Bean     public PaginationInterceptor paginationInterceptor() {         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();          // 创建SQL解析器集合         List&lt;ISqlParser&gt; sqlParserList = new ArrayList&lt;&gt;();          // 创建租户SQL解析器         TenantSqlParser tenantSqlParser = new TenantSqlParser();          // 设置租户处理器         tenantSqlParser.setTenantHandler(new TenantHandler() {             @Override             public Expression getTenantId() {                 // 设置当前租户ID，实际情况你可以从cookie、或者缓存中拿都行                 return new StringValue("jiannan");             }              @Override             public String getTenantIdColumn() {                 // 对应数据库租户ID的列名                 return "tenant_id";             }              @Override             public boolean doTableFilter(String tableName) {                 // 是否需要需要过滤某一张表               /*  List&lt;String&gt; tableNameList = Arrays.asList("sys_user");                 if (tableNameList.contains(tableName)){                     return true;                 }*/                 return false;             }         });          sqlParserList.add(tenantSqlParser);         paginationInterceptor.setSqlParserList(sqlParserList);           return paginationInterceptor;     }  }</code></pre> <p style="text-indent:33px;">配置好之后，不管是查询、新增、修改删除方法，MP都会自动加上租户ID的标识，测试如下：</p> <pre class="has"><code class="language-java">    @Test     public void select(){         List&lt;User&gt; users = userMapper.selectList(Wrappers.&lt;User&gt;lambdaQuery().eq(User::getAge, 18));         users.forEach(System.out::println);     }</code></pre> <pre class="has"><code>DEBUG==&gt;  Preparing: SELECT id, login_name, name, password, email, salt, sex, age, phone, user_type, status, organization_id, create_time, update_time, version, tenant_id FROM sys_user WHERE sys_user.tenant_id = 'jiannan' AND is_delete = '0' AND age = ?  DEBUG==&gt; Parameters: 18(Integer) DEBUG&lt;==      Total: 0</code></pre> <h3>三、特定SQL过滤</h3> <p style="text-indent:33px;">如果在程序中，有部分SQL不需要加上租户ID的表示，需要过滤特定的sql，可以通过如下两种方式：</p> <p style="text-indent:33px;"><span style="color:#86ca5e;">方式一</span>：在配置分页插件中加上配置ISqlParserFilter解析器，如果配置SQL很多，比较麻烦，不建议。</p> <pre class="has"><code class="language-java">paginationInterceptor.setSqlParserFilter(new ISqlParserFilter() {             @Override             public boolean doFilter(MetaObject metaObject) {                 MappedStatement ms = SqlParserHelper.getMappedStatement(metaObject);                 // 对应Mapper、dao中的方法                 if("com.example.demo.mapper.UserMapper.selectList".equals(ms.getId())){                     return true;                 }                 return false;             }         });</code></pre> <p style="text-indent:33px;"><span style="color:#86ca5e;">方式二</span>：通过租户注解的形式，目前只能作用于Mapper的方法上。</p> <pre class="has"><code class="language-java">/**  * &lt;p&gt;  * 用户 Mapper 接口  * &lt;/p&gt;  *  * @author IT贱男  * @since 2019-06-14  */ public interface UserMapper extends BaseMapper&lt;User&gt; {       /**      * 自定Wrapper修改      *      * @param userWrapper 条件构造器      * @param user        修改的对象参数      * @return      */     @SqlParser(filter = true)     int updateByMyWrapper(@Param(Constants.WRAPPER) Wrapper&lt;User&gt; userWrapper, @Param("user") User user);  }</code></pre> <pre class="has"><code># 开启 SQL 解析缓存注解生效，如果你的MP版本在3.1.1及以上则不需要配置 mybatis-plus:   global-config:     sql-parser-cache: true</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76191.htm">宠物粮食加工厂设备有哪些厂家生产饲料 宠物粮食加工厂设备有哪些厂家生产饲料的</a></p>
+                                        <p>下一个：<a href="/news/article-76876.htm">厦门宠物领养中心哪家好一点的（厦门宠物领养厦门宠物赠送）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-v2ray.htm" title="免费VPN分享 | 3月14日21M/S|免费Shadowrocket/Clash/SSR/V2ray订阅节点分享">免费VPN分享 | 3月14日21M/S|免费Shadowrocket/Clash/SSR/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-node-subscribe.htm" title="免费VPN分享 | 3月18日22.3M/S|免费Clash/SSR/Shadowrocket/V2ray订阅节点分享">免费VPN分享 | 3月18日22.3M/S|免费Clash/SSR/Shadowrocket/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-70229.htm" title="vue中Element UI表格分页功能的实现">vue中Element UI表格分页功能的实现</a></li>
+                        <li class="py-2"><a href="/news/article-73509.htm" title="深度水解奶粉有哪些大品牌(深度水解奶粉有哪些大品牌和小品牌)">深度水解奶粉有哪些大品牌(深度水解奶粉有哪些大品牌和小品牌)</a></li>
+                        <li class="py-2"><a href="/news/article-69325.htm" title="动物疫苗现状分析报告怎么写（动物疫苗存在的问题）">动物疫苗现状分析报告怎么写（动物疫苗存在的问题）</a></li>
+                        <li class="py-2"><a href="/news/article-69324.htm" title="免费宠物领养网站有哪些（免费领养宠物狗的官网）">免费宠物领养网站有哪些（免费领养宠物狗的官网）</a></li>
+                        <li class="py-2"><a href="/news/article-72185.htm" title="宠物领养协议书模板电子版图片 宠物领养协议书模板电子版图片大全">宠物领养协议书模板电子版图片 宠物领养协议书模板电子版图片大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-node-share.htm" title="免费VPN分享 | 3月8日20.9M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享">免费VPN分享 | 3月8日20.9M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-69576.htm" title="青岛动物医院招聘官网首页（青岛动物医院 南京路）">青岛动物医院招聘官网首页（青岛动物医院 南京路）</a></li>
+                        <li class="py-2"><a href="/news/article-74848.htm" title="动物医院投资多少钱啊（动物医院投资多少钱啊现在）">动物医院投资多少钱啊（动物医院投资多少钱啊现在）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">41</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                        免费VPN分享 免费节点订阅官网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashfans/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

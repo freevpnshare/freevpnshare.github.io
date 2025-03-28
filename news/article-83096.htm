@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://freevpnshare.github.io/news/article-83096.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/website/img/clashfans/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>vue3中获取ref元素的几种方式</title>
+        <meta name="description" content="1. 原生js获取dom元素： document.querySelector(选择器) document.getElementById(id选择器) document.getElementsByCla" />
+    
+    <meta name="author" content="免费VPN分享 免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpnshare.github.io/news/article-83096.htm" />
+    <meta property="og:site_name" content="免费VPN分享 免费节点订阅官网" />
+    <meta property="og:title" content="vue3中获取ref元素的几种方式" />
+    <meta property="og:image" content="https://freevpnshare.github.io/uploads/20240307/3694f76a9ca0a4d18b367b6fdfb3b556.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:53:35" />
+    <meta property="og:updated_time" content="2025-03-28T09:53:35" />
+        <meta property="og:description" content="1. 原生js获取dom元素： document.querySelector(选择器) document.getElementById(id选择器) document.getElementsByCla" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue3中获取ref元素的几种方式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15XX2VLK02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15XX2VLK02');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">免费VPN分享</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">vue3中获取ref元素的几种方式 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h3> <a id="1_jsdom_0" rel="nofollow"></a>1. 原生js获取dom元素：</h3> <pre><code class="prism language-js">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>选择器<span class="token punctuation">)</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>id选择器<span class="token punctuation">)</span> document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token keyword">class</span>选择器<span class="token punctuation">)</span> </code></pre> <h3> <a id="2_refdom_6" rel="nofollow"></a>2. ref获取单个dom元素：</h3> <pre><code class="prism language-js"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>    <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">'divDom'</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>script setup<span class="token operator">&gt;</span> <span class="token keyword">import</span> <span class="token punctuation">{<!-- --></span> ref<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span> <span class="token keyword">const</span> divDom <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'获取dom元素'</span><span class="token punctuation">,</span>divDom<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> </code></pre> <h3> <a id="3_refvfordom_18" rel="nofollow"></a>3. ref获取v-for循环中的dom元素：</h3> <pre><code class="prism language-js"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>    <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">'getDivDom'</span> v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in list"</span> <span class="token operator">:</span>data<span class="token operator">-</span>id<span class="token operator">=</span><span class="token string">"item.id"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>script setup<span class="token operator">&gt;</span> <span class="token keyword">import</span> <span class="token punctuation">{<!-- --></span> ref<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span> <span class="token keyword">const</span> divDomList <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">const</span> <span class="token function-variable function">getDivDom</span> <span class="token operator">=</span> <span class="token parameter">el</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         divDomList<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>el<span class="token punctuation">.</span>dataset<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>el<span class="token punctuation">)</span>      <span class="token punctuation">}</span> <span class="token punctuation">}</span>  <span class="token comment">// const el =divDomList.get(id) // 根据list数据中的id值 获取对应的dom元素 </span> </code></pre> <h3> <a id="4_swiperswiperdom_35" rel="nofollow"></a>4. 在swiper中获取swiper的dom元素：</h3> <pre><code class="prism language-js"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>    <span class="token operator">&lt;</span>swiper @swiper<span class="token operator">=</span><span class="token string">'getSwiper'</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>swiper <span class="token operator">&gt;</span>  <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>script setup<span class="token operator">&gt;</span> <span class="token keyword">import</span> swiper <span class="token keyword">from</span> <span class="token string">'swiper'</span> <span class="token keyword">import</span> <span class="token punctuation">{<!-- --></span> ref<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span> <span class="token keyword">const</span> swiperDom<span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">const</span> <span class="token function-variable function">getSwiper</span><span class="token operator">=</span> <span class="token parameter">el</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     swiperDom<span class="token punctuation">.</span>value <span class="token operator">=</span> el<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82371.htm">淮南免费领养狗狗（淮南市哪里可以领养小动物）</a></p>
+                                        <p>下一个：<a href="/news/article-83097.htm">宠爱国际动物医院简介 宠爱国际动物医院怎么样</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-78914.htm" title="被猫抓伤了怎么判断有没有狂犬病毒（被猫抓了怎么确定有没有狂犬病）">被猫抓伤了怎么判断有没有狂犬病毒（被猫抓了怎么确定有没有狂犬病）</a></li>
+                        <li class="py-2"><a href="/news/article-70230.htm" title="宠物店开不下去了怎么办（宠物店不开了怎么处理）">宠物店开不下去了怎么办（宠物店不开了怎么处理）</a></li>
+                        <li class="py-2"><a href="/news/article-80285.htm" title="动物医院应聘（动物医院应聘要求）">动物医院应聘（动物医院应聘要求）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-v2ray.htm" title="免费VPN分享 | 3月14日21M/S|免费Shadowrocket/Clash/SSR/V2ray订阅节点分享">免费VPN分享 | 3月14日21M/S|免费Shadowrocket/Clash/SSR/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-subscribe-node.htm" title="免费VPN分享 | 3月9日19.1M/S|免费SSR/Shadowrocket/Clash/V2ray订阅节点分享">免费VPN分享 | 3月9日19.1M/S|免费SSR/Shadowrocket/Clash/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-node-share-links.htm" title="免费VPN分享 | 3月23日21.1M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享">免费VPN分享 | 3月23日21.1M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-node-share.htm" title="免费VPN分享 | 3月8日20.9M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享">免费VPN分享 | 3月8日20.9M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-79616.htm" title="手把手教会将 Windows 窗体桌面应用从.NET Framework迁移到 .NET SDK/.NET 6 格式">手把手教会将 Windows 窗体桌面应用从.NET Framework迁移到 .NET SDK/.NET 6 格式</a></li>
+                        <li class="py-2"><a href="/news/article-69575.htm" title="一家宠物店年收入大概多少（一家宠物店一年可以赚多少钱）">一家宠物店年收入大概多少（一家宠物店一年可以赚多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share-links.htm" title="免费VPN分享 | 3月13日20.1M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点分享">免费VPN分享 | 3月13日20.1M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">65</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                        免费VPN分享 免费节点订阅官网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashfans/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

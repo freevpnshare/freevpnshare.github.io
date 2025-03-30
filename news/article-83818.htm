@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://freevpnshare.github.io/news/article-83818.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/website/img/clashfans/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）&#8230;</title>
+        <meta name="description" content="Java Filter过滤器+Listen监听器 啥是过滤器 顾名思义即过滤掉一些东西，比如我们经历的高考中考都是过滤器，他过滤掉一些在学习这一方面不是很好的人，而那些成绩好的人则升入高中，大学。  " />
+    
+    <meta name="author" content="免费VPN分享 免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpnshare.github.io/news/article-83818.htm" />
+    <meta property="og:site_name" content="免费VPN分享 免费节点订阅官网" />
+    <meta property="og:title" content="java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）&#8230;" />
+    <meta property="og:image" content="https://freevpnshare.github.io/uploads/20240307/b6740ad9953165fbf14c2cb3dbecc16f.webp" />
+        <meta property="og:release_date" content="2025-03-29T08:59:57" />
+    <meta property="og:updated_time" content="2025-03-29T08:59:57" />
+        <meta property="og:description" content="Java Filter过滤器+Listen监听器 啥是过滤器 顾名思义即过滤掉一些东西，比如我们经历的高考中考都是过滤器，他过滤掉一些在学习这一方面不是很好的人，而那些成绩好的人则升入高中，大学。  " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）&#8230;">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15XX2VLK02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15XX2VLK02');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">免费VPN分享</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）&#8230; </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>Java Filter过滤器+Listen监听器</p> <p>啥是过滤器</p> <p>顾名思义即过滤掉一些东西，比如我们经历的高考中考都是过滤器，他过滤掉一些在学习这一方面不是很好的人，而那些成绩好的人则升入高中，大学。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/106b804dc177a868bc3124002b371a72.jpg" alt="java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）..."></p> <p>但是java中的过滤器与生活中的过滤器的作用是相差无几的，即按照制定的一些规则来控制一些对象</p> <p>Filer的作用：</p> <p>过滤器是出于客户端与服务器端之间的一道过滤网，在访问资源之前，通过一系列的过滤器对请求</p> <p>进行修改，判断等。把不符合规则的请求在中途拦截或修改，拦截或修改响应</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/e52a5f55253a98c9fe1ee6e84e571b7d.jpg" alt="java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）..."></p> <p>如何创建使用一个Filter</p> <p>1.定义一个类实现接口Filter(java.servlet)</p> <p>import javax.servlet.*;</p> <p>import java.io.IOException;</p> <p>public class Filter1 implements javax.servlet.Filter{<!-- --></p> <p>@Override</p> <p>public void init(FilterConfig filterConfig) throws ServletException {<!-- --></p> <p>}</p> <p>@Override</p> <p>public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {<!-- --></p> <p>}</p> <p>@Override</p> <p>public void destroy() {<!-- --></p> <p>}</p> <p>}</p> <p>Filer的生命周期：</p> <p>1.init：在服务器启动后，会创建Filter对象，然后调用init方法，只执行一次用于加载资源</p> <p>2.doFilter：每一次请求被拦截都会执行</p> <p>3.destory：在服务器关闭后，Filter对象会被销毁，如何服务器对象正常关闭，destory方法会被执行一次</p> <p>用于释放资源</p> <p>2.复写方法</p> <p>3.设置拦截路径</p> <p>设置拦截路径有两种方法，一种是注解配置，一种是设置web.xml</p> <p>注解配置：</p> <p>即加上一个@WebFilter("")</p> <p>import javax.servlet.*;</p> <p>import javax.servlet.annotation.WebFilter;</p> <p>import java.io.IOException;</p> <p>@WebFilter("/*")</p> <p>public class Filter1 implements javax.servlet.Filter{<!-- --></p> <p>@Override</p> <p>public void init(FilterConfig filterConfig) throws ServletException {<!-- --></p> <p>}</p> <p>@Override</p> <p>public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {<!-- --></p> <p>}</p> <p>@Override</p> <p>public void destroy() {<!-- --></p> <p>}</p> <p>}</p> <p>web.XML配置:</p> <p>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</p> <p>xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</p> <p>version="3.1"&gt;</p> <p>demo1</p> <p>Filter1</p> <p>demo1</p> <p>//设置拦截路径</p> <p>/*</p> <p>拦截路径配置的讲解</p> <p>1.具体的资源路径：/index.jsp 只有在访问index.jsp这个资源的时候过滤器才会被执行</p> <p>2.拦截目录：/user/* 访问/user下的所有资源的时候过滤器才会被执行</p> <p>3.后缀名拦截：.jsp 访问后缀名为jsp的资源的时候，过滤器才会被执行</p> <p>4.拦截所有资源：/ 访问所有资源，都会被拦截</p> <p>拦截方式的配置：</p> <p>注解配置：</p> <p>设置dispatcherTypes属性</p> <p>1. REQUEST：默认值。浏览器直接请求资源</p> <p>2. FORWARD：转发访问资源</p> <p>3. INCLUDE：包含访问资源</p> <p>4. ERROR：错误跳转资源</p> <p>5. ASYNC：异步访问资源</p> <p>web.xml配置</p> <p>* 设置标签即可</p> <p>过滤器的执行流程：</p> <p>1.执行过滤器</p> <p>2.执行放行后的资源</p> <p>3.执行过滤器放行器代码下边的代码</p> <p>过滤器链(配置多个过滤器)</p> <p>执行顺序</p> <p>如果有两个过滤器：过滤器1和过滤器2</p> <p>1. 过滤器1</p> <p>2. 过滤器2</p> <p>3. 资源执行</p> <p>4. 过滤器2</p> <p>5. 过滤器1</p> <p>看图按照从左到右的顺序来看就好理解了</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/dd293b575839c6ff4b7243d59c2c7b7e.jpg" alt="java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）..."></p> <p>那么有了多个过滤器之后又是怎么来判断那个过滤器先哪个过滤器后的呢？</p> <p>是随机判断的？</p> <p align="center"> <p>当然不是啦</p> <p>过滤器先后执行顺序的判断方法</p> <p>1. 注解配置：</p> <p>按照类名的字符串比较规则比较，值小的先执行</p> <p>如： AFilter 和 BFilter，AFilter就先执行了。</p> <p>2. web.xml配置：</p> <p>谁定义在上边，谁先执行</p> <p>以上就是Filter的一些基础知识，写作不易，请各位老铁点个赞支持一下，觉得有帮助的也可以收藏呀，我会经常更新文章，也可以关注我呀</p> <p align="center"> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83097.htm">宠爱国际动物医院简介 宠爱国际动物医院怎么样</a></p>
+                                        <p>下一个：<a href="/news/article-83819.htm">准确详解：C/C++ float、double数据类型的表示范围及精度</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-78914.htm" title="被猫抓伤了怎么判断有没有狂犬病毒（被猫抓了怎么确定有没有狂犬病）">被猫抓伤了怎么判断有没有狂犬病毒（被猫抓了怎么确定有没有狂犬病）</a></li>
+                        <li class="py-2"><a href="/news/article-81680.htm" title="领养狗的好处和坏处（领养狗的好处和坏处有哪些）">领养狗的好处和坏处（领养狗的好处和坏处有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-76876.htm" title="厦门宠物领养中心哪家好一点的（厦门宠物领养厦门宠物赠送）">厦门宠物领养中心哪家好一点的（厦门宠物领养厦门宠物赠送）</a></li>
+                        <li class="py-2"><a href="/news/article-71528.htm" title="免费宠物领养网（免费宠物领养网）">免费宠物领养网（免费宠物领养网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-node-share.htm" title="免费VPN分享 | 3月8日20.9M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享">免费VPN分享 | 3月8日20.9M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-69576.htm" title="青岛动物医院招聘官网首页（青岛动物医院 南京路）">青岛动物医院招聘官网首页（青岛动物医院 南京路）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-free-subscribe-node.htm" title="免费VPN分享 | 3月28日19M/S|免费V2ray/SSR/Clash/Shadowrocket订阅节点分享">免费VPN分享 | 3月28日19M/S|免费V2ray/SSR/Clash/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-83819.htm" title="准确详解：C/C++ float、double数据类型的表示范围及精度">准确详解：C/C++ float、double数据类型的表示范围及精度</a></li>
+                        <li class="py-2"><a href="/news/article-80285.htm" title="动物医院应聘（动物医院应聘要求）">动物医院应聘（动物医院应聘要求）</a></li>
+                        <li class="py-2"><a href="/news/article-70230.htm" title="宠物店开不下去了怎么办（宠物店不开了怎么处理）">宠物店开不下去了怎么办（宠物店不开了怎么处理）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">70</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                        免费VPN分享 免费节点订阅官网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashfans/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

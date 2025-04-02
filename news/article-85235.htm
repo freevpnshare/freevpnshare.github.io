@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://freevpnshare.github.io/news/article-85235.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/website/img/clashfans/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>java之Arrays工具类的使用</title>
+        <meta name="description" content="Arrays 是JDK提供的操作数组的工具类，array类提供了动态创建和访问 Java 数组的方法。 arrays此类包含用来操作数组（比如排序和搜索）的各种方法。此类还包含一个允许将数组作为列表来" />
+    
+    <meta name="author" content="免费VPN分享 免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpnshare.github.io/news/article-85235.htm" />
+    <meta property="og:site_name" content="免费VPN分享 免费节点订阅官网" />
+    <meta property="og:title" content="java之Arrays工具类的使用" />
+    <meta property="og:image" content="https://freevpnshare.github.io/uploads/20240307/ee8e33ed726b650c6c647ebca53e3b0e.webp" />
+        <meta property="og:release_date" content="2025-03-31T08:40:17" />
+    <meta property="og:updated_time" content="2025-03-31T08:40:17" />
+        <meta property="og:description" content="Arrays 是JDK提供的操作数组的工具类，array类提供了动态创建和访问 Java 数组的方法。 arrays此类包含用来操作数组（比如排序和搜索）的各种方法。此类还包含一个允许将数组作为列表来" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java之Arrays工具类的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15XX2VLK02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15XX2VLK02');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">免费VPN分享</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">java之Arrays工具类的使用 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>Arrays 是JDK提供的操作数组的工具类，array类提供了动态创建和访问 Java 数组的方法。<br /> arrays此类包含用来操作数组（比如排序和搜索）的各种方法。此类还包含一个允许将数组作为列表来查看的静态工厂。主要有一下几种用法。<br /> 首先声明几个数组：</p> <pre><code>				int a[]={20,3,32,1,72,26,35}; 				int b[]={3,5,7,8,54,23,9}; 				int c[]={3,5,7,8,54,23,9};</code></pre> <p>1.数组转换字符串</p> <pre><code>				System.out.println("转换前："+a); 				//数组转换字符串 				String str=Arrays.toString(a);        				System.out.println("转换为字符串："+str);</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/ba49779d41fc21d1779f65acd85a19a7.jpg" alt="java之Arrays工具类的使用"><br /> 2.对数组进行升序排列</p> <pre><code>				//对数组array的元素进行升序排列 				System.out.println("原数组："+Arrays.toString(a)); 				Arrays.sort(a);                       				System.out.println("排序后："+Arrays.toString(a));</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/69bcc08d1a843881e3e2f8f6b43041b3.jpg" alt="java之Arrays工具类的使用"><br /> 3.所有元素赋特定值</p> <pre><code>				//所以元素都赋成特定值 				System.out.println("赋值前："+Arrays.toString(a)); 				Arrays.fill(a,10);   				System.out.println("赋值后："+Arrays.toString(a));</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/dde26e30c01b53416aaa2769ebd6aa7d.jpg" alt="java之Arrays工具类的使用"><br /> 4.判断数组是否相等</p> <pre><code>				//判断两个数组是否相等(对应位置上的元素是否相等) 				boolean boo=Arrays.equals(a,b);       				boolean boo2=Arrays.equals(b, c); 				System.out.println("a:"+Arrays.toString(a)); 				System.out.println("b:"+Arrays.toString(b)); 				System.out.println("c:"+Arrays.toString(c)); 				System.out.println("a与b是否相等？"+boo); 				System.out.println("b与c是否相等？"+boo2);</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/6d164c70f081d1e5ae48726b24c3c764.jpg" alt="java之Arrays工具类的使用"><br /> 5.对数组复制</p> <pre><code>				//把数组复制成特定长度的数组 				int d[]=Arrays.copyOf(b,b.length);    				System.out.println("d:"+Arrays.toString(d)); 				System.out.println("b:"+Arrays.toString(b));</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/9df6766d60e996c6e539f9cf11ecfa89.jpg" alt="java之Arrays工具类的使用"><br /> 6.查询数组下标</p> <pre><code>				//查询数组下标 				int i=Arrays.binarySearch(b, 5);      				System.out.println("数组b第5个数字下标是："+i);</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/02572647d059aef4f3c03c749cfe0fcc.jpg" alt="java之Arrays工具类的使用"><br /> 7.数组转换成集合</p> <pre><code>				//数组转换成字符串 				String str = Arrays.toString(a); 				//字符串转换成集合 				List&lt;String&gt; list = Arrays.asList(str); 				for (int i = 0; i &lt; list.size(); i++) { 					System.out.println("转换后的List集合："+list.get(i)); 				}</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/91972a9da5027f8a5ab3854d8cae691a.jpg" alt="java之Arrays工具类的使用"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84523.htm">合肥猫咪领养微信群怎么加（合肥猫咪领养平台）</a></p>
+                                        <p>下一个：<a href="/news/article-85236.htm">中国兽药30强企业有哪些（中国兽药十强企业）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-clash-v2ray-ss-ssr.htm" title="免费VPN分享 | 3月16日22.9M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享">免费VPN分享 | 3月16日22.9M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-node-share.htm" title="免费VPN分享 | 3月22日19.4M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享">免费VPN分享 | 3月22日19.4M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-76875.htm" title="MyBatis-Plus 高级功能多租户功能实现">MyBatis-Plus 高级功能多租户功能实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-clash-v2ray-ss-ssr.htm" title="免费VPN分享 | 4月1日20M/S|免费V2ray/Clash/SSR/Shadowrocket订阅节点分享">免费VPN分享 | 4月1日20M/S|免费V2ray/Clash/SSR/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-74849.htm" title="领养宠物协议有法律效力吗知乎 领养宠物协议有法律效力吗知乎文章">领养宠物协议有法律效力吗知乎 领养宠物协议有法律效力吗知乎文章</a></li>
+                        <li class="py-2"><a href="/news/article-84523.htm" title="合肥猫咪领养微信群怎么加（合肥猫咪领养平台）">合肥猫咪领养微信群怎么加（合肥猫咪领养平台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share-links.htm" title="免费VPN分享 | 3月13日20.1M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点分享">免费VPN分享 | 3月13日20.1M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-78263.htm" title="开个宠物店要具备什么条件（开个宠物店大概需要多少钱）">开个宠物店要具备什么条件（开个宠物店大概需要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-72851.htm" title="动物医院仪器有哪些品牌 动物医院仪器有哪些品牌好">动物医院仪器有哪些品牌 动物医院仪器有哪些品牌好</a></li>
+                        <li class="py-2"><a href="/news/article-83818.htm" title="java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）&#8230;">java过滤器的执行顺序_Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）&#8230;</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">73</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                        免费VPN分享 免费节点订阅官网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashfans/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

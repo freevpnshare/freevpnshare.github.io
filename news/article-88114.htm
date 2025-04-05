@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://freevpnshare.github.io/news/article-88114.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/website/img/clashfans/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>iOS全埋点解决方案-控件点击事件</title>
+        <meta name="description" content="前言 	我们主要介绍如何实现控件点击事件（$AppClick）的全埋点。在介绍如何实现之前，我们需要先了解一下，在 UIKit 框架下，处理点击或拖动事件的 Target-Action 设计模式。 一" />
+    
+    <meta name="author" content="免费VPN分享 免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpnshare.github.io/news/article-88114.htm" />
+    <meta property="og:site_name" content="免费VPN分享 免费节点订阅官网" />
+    <meta property="og:title" content="iOS全埋点解决方案-控件点击事件" />
+    <meta property="og:image" content="https://freevpnshare.github.io/uploads/20240307/ae1b9ecb427e348510a9774bf1229dbe.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:06:57" />
+    <meta property="og:updated_time" content="2025-04-04T09:06:57" />
+        <meta property="og:description" content="前言 	我们主要介绍如何实现控件点击事件（$AppClick）的全埋点。在介绍如何实现之前，我们需要先了解一下，在 UIKit 框架下，处理点击或拖动事件的 Target-Action 设计模式。 一" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="iOS全埋点解决方案-控件点击事件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15XX2VLK02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15XX2VLK02');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">免费VPN分享</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">iOS全埋点解决方案-控件点击事件 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<h3 id="前言">前言</h3> <p>	我们主要介绍如何实现控件点击事件（$AppClick）的全埋点。在介绍如何实现之前，我们需要先了解一下，在 UIKit 框架下，处理点击或拖动事件的 Target-Action 设计模式。</p> <h3 id="一-target-action">一、 Target-Action</h3> <p>	Target-Action，也叫目标-动作模式，即当某个事件发生的时候，调用特定对象的特定方法。</p> <p>	比如，在 LoginViewController 页面，有一个按钮，点击按钮时，会调用 LoginViewController 里的 - loginBtnOnClick 方法，“特定对象”就是 Target，“特定方法”就是 Action。也即 Target 是 LoginViewController， Action 是 - loginBtnOnClick 方法。</p> <p>Target-Action 设计模式主要包含两个部分：</p> <ul> <li>Target 对象：接收消息的对象</li> <li>Action 方法：用于表示需要调用的方法</li> </ul> <p>    Target 对象可以是任意类型的对象。但是在 iOS 应用程序中，通常情况下会是一个控制器，而触发事件的对象和 Target 对象一样，也可以是任意对象。例如，手势识别器 UIGestureRecognizer 就可以在识别到手势后，将消息发送给另一个对象。Target-Action 设计模式，最常见的应用场景还是在控件中。iOS 中的控件都是 UIControl 类或者其子类，当用户在操作这些控件时，会将消息发送到指定的对象（Target），而对应的 Action 方法必须符合以下几种形式之一 ：</p> <pre><code>- (void)doSomething; - (void)doSomething:(id)sender; - (void)doSomething:(id)sender forEvent:(UIEvent *)event; - (IBAction)doSomething; - (IBAction)doSomething:(id)sender; - (IBAction)doSomething:(id)sender forEvent:(UIEvent *)event;</code></pre> <p>    其中以 IBAction 作为返回值类型的形式，是为了让该方法能在 Interface Builder 中被看到；sender 参数就是触发事件的控件本身；第二个参数 event 是 UIEvent 的对象，封装了触摸事件的相关信息。我们可以通过代码或者 Interface Builder 为一个控件添加一个 Target 对象以及相对应的 Action 方法。</p> <p>	若想使用代码方式添加 Target-Action（我们也会用 Target-Action 表示：一个 Target 对象以及相对应的 Action 方法），可以直接调用控件对象的如下方法：</p> <pre><code>- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;</code></pre> <p>我们也可以多次调用 - addTarget:action:forControlEvents: 方法给控件添加多个 Target-Action，即使多次调用- addTarget:action:forControlEvents: 添加相同的 Target 但是不同的 Action，也不会出现相互覆盖的问题。另外，在添加 Target-Action 的时候，Target 对象也可以为 nil（默认会先在 self 里查找 Action）。</p> <p>当我们为一个控件添加 Target-Action 后，控件又是如何找到 Target 对象并执行对应的 Action 方法的呢？</p> <p>在 UIControl 类中有一个方法：</p> <pre><code>- (void)sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event;</code></pre> <p>如果控件被用户操作（比如点击），首先会调用这个方法，并将事件转发给应用程序的 UIApplication 对象。</p> <p>同时，在 UIApplication 类中也有一个类似的实例方法：</p> <pre><code>- (BOOL)sendAction:(SEL)action to:(nullable id)target from:(nullable id)sender forEvent:(nullable UIEvent *)event;</code></pre> <p>如果 Target 对象不为 nil，应用程序会让该 Target 对象调用对应的 Action 方法响应事件；如果 Target 对象为 nil，应用程序会在响应者链中搜索定义了该方法的对象，然后执行 Action 方法。</p> <p>基于 Target-Action 设计模式，我们有两种方案可以实现 $AppClick 事件的全埋点。</p> <h3 id="二实现方案">二、实现方案</h3> <p>	通过 Target-Action 执行模式可知，在执行 Action 方法之前，会先后通过控件和 UIApplication 对象发送事件相关的信息。因此，我们可以通过 Method Swizzling 交换 UIApplication 的 - sendAction:to:from:forEvent: 方法，然后在交换后的方法中触发 $AppClick 事件，并根据 target 和 sender 采集相关的属性，即可实现 $AppClick 事件的全埋点 。</p> <p>	对于 UIApplication 类中的 - sendAction:to:from:forEvent: 方法，我们以给 UIButton 设置 action 为例，详细介绍一下。</p> <pre><code><div class="down"><a class="d-popup" title="下载链接" href="#button_file"><i class="be be-download"></i></a><div class="clear"></div></div>;</code></pre> <p>参数：</p> <ul> <li>action：Action 方法对应的 selector，即示例中的 btnAction。</li> <li>target：Target 对象，即示例中的 person。如果 Target 为 nil，应用程序会将消息发送给第一个响应者，并从第一个响应者沿着响应链向上发送消息，直到消息被处理为止。</li> <li>sender：被用户点击或拖动的控件，即发送 Action 消息的对象，即示例中的 button。</li> <li>event：UIEvent 对象，它封装了触发事件的相关信息。</li> </ul> <p>返回值：</p> <p>如果有 responder 对象处理了此消息，返回 YES，否则返回 NO。</p> <h4 id="21-实现步骤">2.1 实现步骤</h4> <p>	通过 Method Swizzling 交换 UIApplication 类中的 -sendAction:to:from:forEvent: 方法来实现 $AppClick 事件的全埋点。</p> <p>第一步：创建 UIApplication 分类 UIApplication+SensorsData</p> <p>第二步：实现交换方法 -sensorsdata_sendAction:to:from:forEvent:</p> <pre><code>z#import "SensorsAnalyticsSDK.h"  - (BOOL)sensorsdata_sendAction:(SEL)action to:(id)target from:(id)sender forEvent:(UIEvent *)event{     // 触发 $AppClick 事件     NSMutableDictionary *properties = [NSMutableDictionary dictionary];     [[SensorsAnalyticsSDK sharedInstance] track:@"$AppClick" properties:properties];          // 调用原有的实现 即 sendAction:to:from:forEvent:     return [self sensorsdata_sendAction:action to:target from:sender forEvent:event]; }</code></pre> <p>第三步：实现 load 类方法，并在类方法中实现 - sendAction:to:from:forEvent: 方法交换</p> <pre><code>#import "NSObject+SASwizzler.h"  + (void)load {     [UIApplication sensorsdata_swizzleMethod:@selector(sendAction:to:from:forEvent:) withMethod:@selector(sensorsdata_sendAction:to:from:forEvent:)]; }</code></pre> <p>第四步：测试验证，在Demo 中添加 button 按钮，点击按钮</p> <pre><code>{   "event" : "$AppClick",   "time" : 1648696085563,   "propeerties" : {     "$model" : "x86_64",     "$manufacturer" : "Apple",     "$lib_version" : "1.0.0",     "$os" : "iOS",     "$app_version" : "1.0",     "$os_version" : "15.2",     "$lib" : "iOS"   } }</code></pre> <h4 id="22-优化-appclick-事件">2.2 优化 $AppClick 事件</h4> <p>一般情况下，对于一个控件的点击事件，我们至少还需要采集如下信息（属性）：</p> <ul> <li>控件类型（$element_type）</li> <li>控件上显示的文本（$element_content）</li> <li>控件所属页面，即 UIViewController（$screen_name）</li> </ul> <p>基于目前的方案，我们来看如何实现采集以上三个属性。</p> <p>1、获取控件类型</p> <p>	获取控件类型相对比较简单，我们可以直接使用控件的 class 名称来代表当前控件的类型，比如可通过如下方式获取控件的 class 名称：</p> <pre><code>NSString *elementType = NSStringFromClass([sender class])；</code></pre> <p>2、获取显示属性</p> <p>	需要根据特定的控件调用相应的方法。</p> <p>第一步：在 UIView 的类别 SensorsData 中新增 sensorsdata_elementContent 属性。</p> <pre><code>@interface UIView (SensorsData)  @property (nonatomic, copy, readonly) NSString *sensorsdata_elementType;  @property (nonatomic, copy, readonly) NSString *sensorsdata_elementContent;  @end</code></pre> <pre><code>- (NSString *)sensorsdata_elementContent {     return nil; }</code></pre> <p>第二步：在 UIView+SensorsData 分类中新增 UIButton 的类别 SensorsData，并实现 -sensorsdata_elementContent 方法</p> <pre><code>#pragma mark - UIButton @interface UIButton (SensorsData)  @end</code></pre> <pre><code>@implementation UIButton (SensorsData)  - (NSString *)sensorsdata_elementContent {     return self.titleLabel.text; }  @end</code></pre> <p>第三步：修改 SensorsAnalyticsSDK+Track 中 - trackAppClickWithView: properties: 方法</p> <pre><code>- (void)trackAppClickWithView:(UIView *)view properties:(nullable NSDictionary &lt;NSString*, id&gt; *)properties {     // 触发 $AppClick 事件     NSMutableDictionary *eventProperties = [NSMutableDictionary dictionary];     // 获取控件类型     [eventProperties setValue:view.sensorsdata_elementType forKey:@"$element_type"];     // 获取控件文本     [eventProperties setValue:view.sensorsdata_elementContent forKey:@"$element_content"];     [eventProperties addEntriesFromDictionary:properties];     [[SensorsAnalyticsSDK sharedInstance] track:@"$AppClick" properties:eventProperties];     }</code></pre> <p>第四步：测试验证</p> <pre><code>{   "event" : "$AppClick",   "time" : 1648708284842,   "propeerties" : {     "$model" : "x86_64",     "$manufacturer" : "Apple",     "$element_type" : "UIButton",     "$lib_version" : "1.0.0",     "$os" : "iOS",     "$element_content" : "eeeeeee",     "$app_version" : "1.0",     "$os_version" : "15.2",     "$lib" : "iOS"   } }</code></pre> <p>3、获取控件所属的界面</p> <p>如何知道一个 UIView 所属哪个 UIViewController 呢？</p> <p>这就需要借助 UIResponder 了！</p> <p>大家都知道，UIResponder 类是 iOS 应用程序中专门用来响应用户操作事件的，比如：</p> <ul> <li>Touch Events：即触摸事件</li> <li>Motion Events：即运动事件</li> <li>Remote Control Events：即远程控制事件</li> </ul> <p>    UIApplication、UIViewController、UIView 类都是 UIResponder 的子类，所以它们都具有响应以上事件的能力。另外，自定义的 UIView 和自定义视图控制器也都可以响应以上事件。在 iOS 应用程序中，UIApplication、UIViewController、UIView 类的对象也都是一个个响应者，这些响应者会形成一个响应者链。一个完整的响应者链传递规则（顺序）大概如下：UIView → UIViewController → RootViewController → Window → UIApplication → UIApplicationDelegate，可参考下图所示（此图来源于苹果官方网站） 。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c9c08165bd2e85c7be95b4a1021f673a.jpg" alt="iOS全埋点解决方案-控件点击事件"></p> <p>    注意：对于 iOS 应用程序里实现了 UIApplicationDelegate 协议的类（通常为 AppDelegate），如果它是继承自 UIResponder，那么也会参与响应者链的传递；如果不是继承自 UIResponder（例如 NSObject），那么它就不会参与响应者链的传递。</p> <p>    通过图可以知道，对于任意一个视图来说，都能通过响应者链找到它所在的视图控制器，也就是其所属的页面，从而可以达到获取它所属页面信息的目的。</p> <p>第一步：新增 sensorsdata_viewController 属性</p> <pre><code>@interface UIView (SensorsData)  @property (nonatomic, copy, readonly) NSString *sensorsdata_elementType;  @property (nonatomic, copy, readonly) NSString *sensorsdata_elementContent;  @property (nonatomic, copy, readonly) NSString *sensorsdata_viewController;  @end</code></pre> <p>第二步：实现 实现 -sensorsdata_viewController 方法</p> <pre><code>- (NSString *)sensorsdata_viewController {     UIResponder *responder = self;     while ((responder = [responder nextResponder])) {         if ([responder isKindOfClass:[UIViewController class]]) {             return (UIViewController *)responder.class;         }     }     return nil; }</code></pre> <p>第三步：修改 - trackAppClickWithView: properties: 方法</p> <pre><code>- (void)trackAppClickWithView:(UIView *)view properties:(nullable NSDictionary &lt;NSString*, id&gt; *)properties {     // 触发 $AppClick 事件     NSMutableDictionary *eventProperties = [NSMutableDictionary dictionary];     // 获取控件类型     [eventProperties setValue:view.sensorsdata_elementType forKey:@"$element_type"];     // 获取控件文本     [eventProperties setValue:view.sensorsdata_elementContent forKey:@"$element_content"];     // 获取控件所在的控制器     UIViewController *vc = view.sensorsdata_viewController;     [eventProperties setValue:NSStringFromClass(vc.class) forKey:@"$screen_name"];     [eventProperties addEntriesFromDictionary:properties];     [[SensorsAnalyticsSDK sharedInstance] track:@"$AppClick" properties:eventProperties];     }</code></pre> <p>第四步：测试验证</p> <pre><code>{   "event" : "$AppClick",   "time" : 1648711998403,   "propeerties" : {     "$model" : "x86_64",     "$manufacturer" : "Apple",     "$element_type" : "UIButton",     "$lib_version" : "1.0.0",     "$os" : "iOS",     "$element_content" : "eeeeeee",     "$app_version" : "1.0",     "$screen_name" : "ViewController",     "$os_version" : "15.2",     "$lib" : "iOS"   } }</code></pre> <h3 id="三遗留问题">三、遗留问题</h3> <p>如果，一个控件添加了多个 Target-Action，会导致多次触发 $AppClick 事件。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87390.htm">什么生肖养猫不好（什么属相养猫不好）</a></p>
+                                        <p>下一个：<a href="/news/article-88115.htm">养猫要打什么疫苗多少钱（养猫需要打的疫苗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-node-share.htm" title="免费VPN分享 | 4月2日20.7M/S|免费Shadowrocket/Clash/V2ray/SSR订阅节点分享">免费VPN分享 | 4月2日20.7M/S|免费Shadowrocket/Clash/V2ray/SSR订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-70229.htm" title="vue中Element UI表格分页功能的实现">vue中Element UI表格分页功能的实现</a></li>
+                        <li class="py-2"><a href="/news/article-88114.htm" title="iOS全埋点解决方案-控件点击事件">iOS全埋点解决方案-控件点击事件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-node-share-links.htm" title="免费VPN分享 | 3月23日21.1M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享">免费VPN分享 | 3月23日21.1M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-free-subscribe-node.htm" title="免费VPN分享 | 3月19日19.2M/S|免费Shadowrocket/SSR/Clash/V2ray订阅节点分享">免费VPN分享 | 3月19日19.2M/S|免费Shadowrocket/SSR/Clash/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-node-share-links.htm" title="免费VPN分享 | 3月7日18.3M/S|免费Shadowrocket/SSR/V2ray/Clash订阅节点分享">免费VPN分享 | 3月7日18.3M/S|免费Shadowrocket/SSR/V2ray/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-72184.htm" title="猫三联一般多少钱一针疫苗（猫三联疫苗多少钱一针?）">猫三联一般多少钱一针疫苗（猫三联疫苗多少钱一针?）</a></li>
+                        <li class="py-2"><a href="/news/article-71528.htm" title="免费宠物领养网（免费宠物领养网）">免费宠物领养网（免费宠物领养网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-node-subscribe.htm" title="免费VPN分享 | 3月18日22.3M/S|免费Clash/SSR/Shadowrocket/V2ray订阅节点分享">免费VPN分享 | 3月18日22.3M/S|免费Clash/SSR/Shadowrocket/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-node-subscribe-links.htm" title="免费VPN分享 | 3月12日22.8M/S|免费Shadowrocket/V2ray/SSR/Clash订阅节点分享">免费VPN分享 | 3月12日22.8M/S|免费Shadowrocket/V2ray/SSR/Clash订阅节点分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">73</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                        免费VPN分享 免费节点订阅官网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashfans/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://freevpnshare.github.io/news/article-96998.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/website/img/clashfans/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>一个高频问题：异步操作会创建线程吗？</title>
+        <meta name="description" content="这个问题在微信上被别人问过好多次，想来想去觉得有必要统一解答下，先说下我的答案：可能会，也有可能不会。 要想寻找答案，需要从异步处理 的底层框架说起。 一：异步底层是什么 异步 从设计层面上来说它就是" />
+    
+    <meta name="author" content="免费VPN分享 免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpnshare.github.io/news/article-96998.htm" />
+    <meta property="og:site_name" content="免费VPN分享 免费节点订阅官网" />
+    <meta property="og:title" content="一个高频问题：异步操作会创建线程吗？" />
+    <meta property="og:image" content="https://freevpnshare.github.io/uploads/20240307/bc73db713dd1e8105ddbe7f5f81cd7a3.webp" />
+        <meta property="og:release_date" content="2025-04-16T08:38:46" />
+    <meta property="og:updated_time" content="2025-04-16T08:38:46" />
+        <meta property="og:description" content="这个问题在微信上被别人问过好多次，想来想去觉得有必要统一解答下，先说下我的答案：可能会，也有可能不会。 要想寻找答案，需要从异步处理 的底层框架说起。 一：异步底层是什么 异步 从设计层面上来说它就是" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一个高频问题：异步操作会创建线程吗？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clashfans/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/clashfans/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15XX2VLK02"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15XX2VLK02');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">免费VPN分享</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">一个高频问题：异步操作会创建线程吗？ </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>这个问题在微信上被别人问过好多次，想来想去觉得有必要统一解答下，先说下我的答案：<strong>可能会，也有可能不会</strong>。</p> <p>要想寻找答案，需要从<code>异步处理</code> 的底层框架说起。</p> <h2 id="一异步底层是什么">一：异步底层是什么</h2> <p><code>异步</code> 从设计层面上来说它就是一个<code>发布订阅者</code> 模式，毕竟它的底层用到了<code>端口完成队列</code>，可以从<code>IO完成端口内核对象</code> 所提供的三个方法中有所体现。</p> <ol> <li>CreateIoCompletionPort</li> </ol> <p>可以粗看下签名：</p> <pre><code class="language-C#"> HANDLE WINAPI CreateIoCompletionPort(   _In_     HANDLE    FileHandle,   _In_opt_ HANDLE    ExistingCompletionPort,   _In_     ULONG_PTR CompletionKey,   _In_     DWORD     NumberOfConcurrentThreads );</code></pre> <p>这个方法主要是将<code>文件句柄</code> 和<code>IO完成端口内核对象</code> 进行绑定，其中的<code>NumberOfConcurrentThreads</code> 表示完成端口最多允许 running 的线程上限。</p> <ol start="2"> <li>PostQueuedCompletionStatus</li> </ol> <p>再看签名：</p> <pre><code class="language-C#"> BOOL WINAPI PostQueuedCompletionStatus(   _In_     HANDLE       CompletionPort,   _In_     DWORD        dwNumberOfBytesTransferred,   _In_     ULONG_PTR    dwCompletionKey,   _In_opt_ LPOVERLAPPED lpOverlapped );</code></pre> <p>这个函数的作用就是将一个<code>包</code> 通过<code>内核对象</code> 丢给<code>驱动设备程序</code> ，由后者与硬件交互，比如<code>文件</code>。</p> <ol start="3"> <li>GetQueuedCompletionStatus</li> </ol> <p>看签名：</p> <pre><code class="language-C#"> BOOL GetQueuedCompletionStatus(   [in]  HANDLE       CompletionPort,         LPDWORD      lpNumberOfBytesTransferred,   [out] PULONG_PTR   lpCompletionKey,   [out] LPOVERLAPPED *lpOverlapped,   [in]  DWORD        dwMilliseconds );</code></pre> <p>这个方法尝试从<code>IO完成端口内核对象</code> 中提取 IO 包，如果没有提取到，那么就会无限期等待，直到提取为止。</p> <p>对上面三个方法有了概念之后，接下来看下结构图：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/95f4878bf0862f18ea2158f445e4851f.jpg" alt="一个高频问题：异步操作会创建线程吗？"></p> <p>这张图非常言简意赅，不过只画了<code>端口完成队列</code>, 其实还有三个与IO线程有关的队列，分别为：<code>等待线程队列</code>，<code>已释放队列</code>,<code>已暂停队列</code>，接下来我们稍微解读一下。</p> <p>当<code>线程t1</code> 调用<code>GetQueuedCompletionStatus</code> 时，假使此刻<code>任务队列q1</code> 无任务， 那么<code>t1</code> 会卡住并自动进去<code>等待线程队列</code> ，当某个时刻<code>q1</code> 进了任务（由驱动程序投递的），此时操作系统会将<code>t1</code> 激活来提取<code>q1</code> 的任务执行，同时将<code>t1</code> 送到<code>已释放队列</code>中。</p> <p>这个时候就有两条路了。</p> <ol> <li>遇到 Sleep 或者 lock 情况。</li> </ol> <p>如果 t1 在执行的时候，遇到了<code>Sleep</code> 或者<code>lock</code> 锁时需要被迫停止，此时系统会将 t1 线程送到<code>已暂停线程队列</code> 中，如果都 sleep 了，那<code>NumberOfConcurrentThreads</code> 就会变为 0 ，此时就会遇到无人可用的情况，那怎么办呢？只能让系统从<code>线程池</code> 中申请更多的线程来从<code>q1</code> 队列中提取任务，当某个时刻，<code>已暂停线程队列</code> 中的线程激活，那么它又回到了<code>已释放队列</code> 中继续执行任务，当任务执行完之后，再次调用<code>GetQueuedCompletionStatus</code> 方法进去<code>等待线程队列</code>。</p> <p>当然这里有一个问题，某一个时刻<code>等待线程队列</code> 中的线程数会暂时性的超过<code>NumberOfConcurrentThreads</code> 值，不过问题也不大。</p> <p>说了这么多理论是不是有点懵， 没关系，接下来我结合 windbg 和 coreclr 源码一起看下。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cd8590809d8cb7b7bc255193ab4cc61a.jpg" alt="一个高频问题：异步操作会创建线程吗？"></p> <p>以我的机器来说，<code>IO完成端口内核对象</code> 默认最多允许<code>12</code> 个 running 线程，当遇到 sleep 时看看会不会突破<code>12</code> 的限制，上代码：</p> <pre><code class="language-C#">     class Program     {         static void Main(string[] args)         {             for (int i = 0; i &lt; 2000; i++)             {                 Task.Run(async () =&gt;                 {                     await GetString();                 });             }              Console.ReadLine();         }          public static int counter = 0;          static async Task&lt;string&gt; GetString()         {             var httpClient = new HttpClient();              var str = await httpClient.GetStringAsync("http://cnblogs.com");              Console.WriteLine($"counter={++counter}, 线程：{Thread.CurrentThread.ManagedThreadId},str.length={str.Length}");              Thread.Sleep(1000000);              return str;         }     }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/375b05bed5d9290b1c828b8dbf58daae.jpg" alt="一个高频问题：异步操作会创建线程吗？"></p> <p>从图中看，已经破掉了<code>12</code> 的限制，那是不是 30 呢？ 可以用 windbg 帮忙确认一下。</p> <pre><code class="language-C#"> 0:059&gt; !tp CPU utilization: 3% Worker Thread: Total: 13 Running: 0 Idle: 13 MaxLimit: 2047 MinLimit: 12 Work Request in Queue: 0 -------------------------------------- Number of Timers: 1 -------------------------------------- Completion Port Thread:Total: 30 Free: 0 MaxFree: 24 CurrentLimit: 30 MaxLimit: 1000 MinLimit: 12</code></pre> <p>从最后一行看，没毛病，<code>IO完成端口线程</code> 确实是<code>30</code> 个。</p> <blockquote> <p>在这种情况，异步操作一定会创建线程来处理</p> </blockquote> <ol start="2"> <li>遇到耗时操作</li> </ol> <p>所谓的耗时操作，大体上是大量的序列化，复杂计算等等，这里我就用<code>while(true)</code> 模拟，因为所有线程都没有遇到暂停事件，所以理论上不会突破<code>12</code> 的限制，接下来稍微修改一下<code>GetString()</code> 方法。</p> <pre><code class="language-C#">         static async Task&lt;string&gt; GetString()         {             var httpClient = new HttpClient();              var str = await httpClient.GetStringAsync("http://cnblogs.com");              Console.WriteLine($"counter={++counter},时间:{DateTime.Now}, 线程：{Thread.CurrentThread.ManagedThreadId},str.length={str.Length}");              while (true) { }              return str;         }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/68d8ca71047080079895b3616f1c3ae8.jpg" alt="一个高频问题：异步操作会创建线程吗？"></p> <p>对比图中的时间，过了30s也无法突破 12 的限制，毕竟这些线程都是 running 状态并都在<code>已释放队列</code>中，这也就造成了所谓的<code>请求无响应</code> 的尴尬情况。</p> <h2 id="二直面问题">二：直面问题</h2> <p>如果明白了上面我所说的，那么<code>异步操作会不会创建线程 ？</code> 问题，我的答案是<code>有可能会也有可能不会</code>，具体还是取决于上面提到了两种 callback 逻辑。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96313.htm">人用针剂跟畜用针剂一样吗（人用针剂跟畜用针剂一样吗有毒吗）</a></p>
+                                        <p>下一个：<a href="/news/article-97000.htm">宠物领养协议书范本模板下载图片（宠物领养协议文案）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-78915.htm" title="宠物粮销量排名榜前十名图片（宠物粮价格）">宠物粮销量排名榜前十名图片（宠物粮价格）</a></li>
+                        <li class="py-2"><a href="/news/article-72851.htm" title="动物医院仪器有哪些品牌 动物医院仪器有哪些品牌好">动物医院仪器有哪些品牌 动物医院仪器有哪些品牌好</a></li>
+                        <li class="py-2"><a href="/news/article-85235.htm" title="java之Arrays工具类的使用">java之Arrays工具类的使用</a></li>
+                        <li class="py-2"><a href="/news/article-97000.htm" title="宠物领养协议书范本模板下载图片（宠物领养协议文案）">宠物领养协议书范本模板下载图片（宠物领养协议文案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-v2ray-subscribe.htm" title="免费VPN分享 | 3月31日18.6M/S|免费Clash/V2ray/Shadowrocket/SSR订阅节点分享">免费VPN分享 | 3月31日18.6M/S|免费Clash/V2ray/Shadowrocket/SSR订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-92544.htm" title="动物疫苗怎么注射的图片（动物疫苗注射方法）">动物疫苗怎么注射的图片（动物疫苗注射方法）</a></li>
+                        <li class="py-2"><a href="/news/article-99240.htm" title="宠物用品高端品牌（十大宠物用品品牌）">宠物用品高端品牌（十大宠物用品品牌）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-high-speed-nodes.htm" title="免费VPN分享 | 3月11日21.5M/S|免费SSR/V2ray/Shadowrocket/Clash订阅节点分享">免费VPN分享 | 3月11日21.5M/S|免费SSR/V2ray/Shadowrocket/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-90886.htm" title="Python——if语句">Python——if语句</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-node-share-links.htm" title="免费VPN分享 | 3月29日21.6M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享">免费VPN分享 | 3月29日21.6M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">55</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">73</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                        免费VPN分享 免费节点订阅官网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashfans/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashfans/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

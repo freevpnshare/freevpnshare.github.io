@@ -75,7 +75,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="logo">
-                                        <a href="/">免费VPN分享</a>
+                                        <a href="/">免费VPN节点分享</a>
                                     </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -84,6 +84,9 @@
                     <ul class="navbar-nav ml-auto">
                                                 <li class="nav-item">
                             <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
                         </li>
                                                 <li class="nav-item">
                             <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
@@ -119,7 +122,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node免费节点站" data-url="https://clashnode.github.io">
                 <div class="xcblog-blog-detail xcblog-blog-detail-defined">
                       <h2>引言：当智能路由遇见隐私守护</h2>  <p>在数字化生存成为常态的今天，家庭网关已从简单的网络分配器进化为智能网络中枢。OpenWrt以其开源特性成为极客们的首选，而Luci作为其"可视化大脑"，让复杂的路由配置变得触手可及。与此同时，V2Ray这款被誉为"下一代代理工具"的软件，正以多协议支持、强混淆能力重塑着网络隐私保护的边界。本文将带您深入探索这两大技术的完美融合——在Luci图形界面中实现V2Ray的全流程部署，打造兼具便利性与安全性的智能网络环境。  </p>  <h2>第一章 技术基石解析</h2>  <h3>1.1 Luci：OpenWrt的视觉神经</h3>  <p>作为OpenWrt的官方Web管理界面，Luci采用Lua语言开发，将晦涩的UCI配置转化为直观的交互界面。不同于传统路由器的功能阉割版界面，Luci完整保留了OpenWrt的所有特性：<br /> - <strong>网络拓扑可视化</strong>：实时展示WAN/LAN/WiFi连接状态<br /> - <strong>防火墙规则编辑器</strong>：支持图形化配置NAT/端口转发<br /> - <strong>软件包管理系统</strong>：超过3000个应用的一键安装<br /> - <strong>实时监控看板</strong>：CPU负载、内存占用、连接数等数据可视化  </p>  <h3>1.2 V2Ray：隐私保护的瑞士军刀</h3>  <p>Project V团队打造的V2Ray之所以被称为代理工具中的"变形金刚"，源于其三大核心优势：<br /> 1. <strong>协议矩阵</strong>：支持VMess、Shadowsocks、Socks等17种协议，可动态切换<br /> 2. <strong>流量伪装</strong>：通过TLS+WebSocket实现流量特征伪装，有效对抗DPI检测<br /> 3. <strong>路由智能</strong>：基于域名的分流策略，实现国内外流量智能路由  </p>  <blockquote>   <p><strong>技术点评</strong>：当Luci的可视化能力遇上V2Ray的多协议支持，就像为狙击手配备了全息瞄准镜——既保留了精准控制力，又大幅降低了操作门槛。  </p> </blockquote>  <h2>第二章 环境准备与安装</h2>  <h3>2.1 系统要求核查</h3>  <p>在开始前需确认：<br /> - OpenWrt版本 ≥ 19.07（推荐使用21.02稳定版）<br /> - 存储空间 ≥ 32MB（完整安装需要约18MB空间）<br /> - 已连接互联网（建议通过有线连接进行配置）  </p>  <h3>2.2 软件源配置艺术</h3>  <ol> <li>登录Luci进入<code>系统 &gt; 软件包</code>  </li> <li>在<code>配置</code>标签页检查软件源：<br /> <code>bash src/gz openwrt_base https://downloads.openwrt.org/releases/21.02.3/packages/mipsel_24kc/base src/gz openwrt_luci https://downloads.openwrt.org/releases/21.02.3/packages/mipsel_24kc/luci</code>  </li> <li>执行<code>更新列表</code>（需等待约2分钟）  </li> </ol>  <h3>2.3 V2Ray核心安装</h3>  <p>通过SSH或Luci终端执行：<br /> <code>bash opkg update opkg install v2ray-core luci-app-v2ray luci-i18n-v2ray-zh-cn</code><br /> <strong>常见问题处理</strong>：<br /> - 若出现依赖错误，尝试<code>opkg install --force-depends</code><br /> - 空间不足时可挂载USB存储扩展overlay  </p>  <h2>第三章 深度配置实战</h2>  <h3>3.1 服务端连接配置</h3>  <p>进入<code>服务 &gt; V2Ray</code>主界面：  </p>  <p>| 参数项       | 示例值              | 技术说明                  | |--------------|---------------------|-------------------------| | 服务器地址   | us.v2ray.example.com | 建议使用域名避免IP封锁    | | 端口         | 443                 | 伪装为HTTPS端口          | | 用户ID       | 12345678-1234-...   | UUID需与服务端严格一致    | | 传输协议     | WebSocket + TLS     | 最佳隐蔽性方案            | | 路径         | /ws-path            | 自定义路径增强混淆        |</p>  <h3>3.2 高级路由策略</h3>  <p>在<code>路由设置</code>标签页配置：<br /> - <strong>域名分流</strong>：添加<code>geosite:cn</code>直连规则<br /> - <strong>IP分流</strong>：设置<code>geoip:private</code>不代理局域网流量<br /> - <strong>负载均衡</strong>：配置多个outbound实现故障自动切换  </p>  <h3>3.3 防火墙联动配置</h3>  <ol> <li>进入<code>网络 &gt; 防火墙</code>  </li> <li>创建新规则：    <ul> <li>名称：V2Ray_Redirect  </li> <li>协议：TCP  </li> <li>目标端口：12345（自定义监听端口）  </li> <li>动作：重定向到1080  </li> </ul></li> </ol>  <h2>第四章 性能调优与监控</h2>  <h3>4.1 速度优化技巧</h3>  <ul> <li><strong>Mux多路复用</strong>：启用<code>mux.enable</code>（并发连接数建议设为4）  </li> <li><strong>传输层优化</strong>：<br /> <code>json "streamSettings": { "tcpSettings": {   "header": {     "type": "http",     "request": {       "path": ["/fake-path"]     }   } } }</code>  </li> </ul>  <h3>4.2 实时监控方案</h3>  <ol> <li>安装监控组件：<br /> <code>bash opkg install luci-app-statistics collectd-mod-v2ray</code>  </li> <li>在<code>状态 &gt; 实时图表</code>中可查看：    <ul> <li>代理延迟热力图  </li> <li>流量吞吐波动曲线  </li> <li>连接数变化趋势  </li> </ul></li> </ol>  <h2>第五章 故障排查手册</h2>  <h3>5.1 连接诊断流程</h3>  <p><code>mermaid graph TD     A[连接失败] --&gt; B{能ping通服务器?}     B --&gt;|否| C[检查网络基础连接]     B --&gt;|是| D{端口可访问?}     D --&gt;|否| E[检查防火墙/服务端配置]     D --&gt;|是| F[检查UUID/时间偏移]</code>  </p>  <h3>5.2 典型错误解决方案</h3>  <ul> <li><strong>证书错误</strong>：更新CA证书包<code>opkg install ca-certificates</code>  </li> <li><strong>时间不同步</strong>：安装NTP客户端<code>opkg install ntpclient</code>  </li> <li><strong>内存溢出</strong>：添加swap分区或启用<code>v2ray.ray.compress</code>  </li> </ul>  <h2>结语：构建智能安全网络</h2>  <p>通过本文的深度探索，我们见证了Luci与V2Ray这对黄金组合如何将专业级网络隐私保护带入寻常百姓家。从基础的协议配置到高级的路由策略，从性能调优到故障排查，这套方案既满足了技术爱好者的定制需求，又通过图形界面降低了普通用户的使用门槛。  </p>  <p>在5G与IoT时代，网络边界正在消失，而隐私保护将成为数字生活的基本需求。掌握本文所述技能，您不仅获得了一把打开无界网络的钥匙，更构筑了抵御数据洪流的安全堤坝。正如网络安全专家Bruce Schneier所言："隐私不是关于隐藏什么，而是关于自我保护的权利。"愿每位读者都能在开放与安全之间找到完美平衡。  </p>  <blockquote>   <p><strong>终极建议</strong>：定期检查V2Ray的GitHub Release页面，及时更新以获取最新的协议对抗能力；同时建议结合WireGuard实现全隧道加密，构建多层次的防御体系。</p> </blockquote>                 </div>
                 <div class="clearfix"></div>
@@ -135,16 +138,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-8-20-vpn-node.htm" title="APP VPN | 8月20日18.6M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点地址">APP VPN | 8月20日18.6M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-11-vpn-github.htm" title="APP VPN | 8月11日23M/S|免费SSR/V2ray/Shadowrocket/Clash订阅节点地址">APP VPN | 8月11日23M/S|免费SSR/V2ray/Shadowrocket/Clash订阅节点地址</a></li>
-                        <li class="py-2"><a href="/news/article-149527.htm" title="Clash X 续费全攻略：手把手教你轻松完成服务延续">Clash X 续费全攻略：手把手教你轻松完成服务延续</a></li>
-                        <li class="py-2"><a href="/news/article-150895.htm" title="深度剖析Clash代理断网危机：从故障排查到性能优化的全链路解决方案">深度剖析Clash代理断网危机：从故障排查到性能优化的全链路解决方案</a></li>
-                        <li class="py-2"><a href="/news/article-147424.htm" title="突破地域限制：科学上网购买全球游戏的终极指南">突破地域限制：科学上网购买全球游戏的终极指南</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-20-vpn-node.htm" title="APP VPN | 8月20日18.6M/S|免费SSR/Shadowrocket节点/V2ray节点/Clash订阅节点地址">APP VPN | 8月20日18.6M/S|免费SSR/Shadowrocket节点/V2ray节点/Clash订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-6-free-vpn-node.htm" title="APP VPN | 8月6日20.6M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray订阅节点地址">APP VPN | 8月6日20.6M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-9-vpn-free.htm" title="APP VPN | 8月9日22.6M/S|免费Clash节点/V2ray节点/SSR/Shadowrocket订阅节点地址">APP VPN | 8月9日22.6M/S|免费Clash节点/V2ray节点/SSR/Shadowrocket订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-150543.htm" title="碰撞与交锋：深度解析Clash的多重含义与文化应用">碰撞与交锋：深度解析Clash的多重含义与文化应用</a></li>
                         <li class="py-2"><a href="/news/article-148501.htm" title="穿越网络迷途：当Clash无法访问“悠”时的深度排查指南">穿越网络迷途：当Clash无法访问“悠”时的深度排查指南</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-9-vpn-free.htm" title="APP VPN | 8月9日22.6M/S|免费Clash/V2ray/SSR/Shadowrocket订阅节点地址">APP VPN | 8月9日22.6M/S|免费Clash/V2ray/SSR/Shadowrocket订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-16-vpn-free.htm" title="APP VPN | 8月16日19.5M/S|免费SSR/Clash/Shadowrocket/V2ray订阅节点地址">APP VPN | 8月16日19.5M/S|免费SSR/Clash/Shadowrocket/V2ray订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-6-free-vpn-node.htm" title="APP VPN | 8月6日20.6M/S|免费Shadowrocket/SSR/Clash/V2ray订阅节点地址">APP VPN | 8月6日20.6M/S|免费Shadowrocket/SSR/Clash/V2ray订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-18-top-vpn.htm" title="APP VPN | 8月18日21.9M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点地址">APP VPN | 8月18日21.9M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-23-free-node-subscribe-links.htm" title="免费VPN分享 | 9月23日20.9M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray订阅节点分享">免费VPN分享 | 9月23日20.9M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-154897.htm" title="解锁全球VR体验：三星VR科学上网终极指南">解锁全球VR体验：三星VR科学上网终极指南</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-18-top-vpn.htm" title="APP VPN | 8月18日21.9M/S|免费Clash节点/Shadowrocket节点/V2ray节点/SSR订阅节点地址">APP VPN | 8月18日21.9M/S|免费Clash节点/Shadowrocket节点/V2ray节点/SSR订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-147827.htm" title="从V2Ray到Tiny的华丽转身：一份超详细的代理工具迁移指南">从V2Ray到Tiny的华丽转身：一份超详细的代理工具迁移指南</a></li>
+                        <li class="py-2"><a href="/news/article-148847.htm" title="探索网络自由之旅：灵魂云Clash手机版全方位指南">探索网络自由之旅：灵魂云Clash手机版全方位指南</a></li>
                     </ul>
     </div>
 </div>
@@ -156,7 +159,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
@@ -177,8 +180,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                                        <p>
+                                        <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
                                                 <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
                                                 <a href="/paid-subscribe/">推荐机场</a> |
                                                 <a href="/news/">新闻资讯</a> |
                                                 <a href="/client.htm">客户端</a> |
@@ -187,7 +192,7 @@
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                    <p class="copyright_text">
+                                        <p class="copyright_text">
                         免费VPN分享 免费节点订阅官网 版权所有
                         <br />
                         Powered by WordPress

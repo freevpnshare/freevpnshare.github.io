@@ -75,7 +75,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="logo">
-                                        <a href="/">免费VPN分享</a>
+                                        <a href="/">免费VPN节点分享</a>
                                     </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -84,6 +84,9 @@
                     <ul class="navbar-nav ml-auto">
                                                 <li class="nav-item">
                             <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
                         </li>
                                                 <li class="nav-item">
                             <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
@@ -119,7 +122,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node免费节点站" data-url="https://clashnode.github.io">
                 <div class="xcblog-blog-detail xcblog-blog-detail-defined">
                       <p>在当今复杂的网络环境中，隐私保护和网络自由成为越来越多用户的刚需。作为两款备受瞩目的代理工具，V2Ray（简称V2）和Clash各自拥有庞大的用户群体。究竟哪款工具更适合你？本文将从核心技术、用户体验、性能表现等维度展开深度解析，助你找到最匹配的网络解决方案。  </p>  <h2>一、工具起源与设计哲学</h2>  <h3>1.1 V2Ray：极客精神的结晶</h3>  <p>诞生于2015年的V2Ray（Project V核心项目）代表着代理技术的巅峰之作。其开发团队以"打造永不消失的彩虹桥"为理念，创造性地采用模块化架构，支持VMess、Shadowsocks、Socks等十余种协议。最令人称道的是其"动态端口"和"多路复用"技术，通过流量伪装使检测系统难以识别，在对抗深度包检测（DPI）方面表现卓越。  </p>  <p>技术特点：<br /> - 全平台支持（包括路由器OpenWRT等嵌入式系统）<br /> - 独创的mKCP协议可优化高延迟网络<br /> - 支持WebSocket+TLS实现完美伪装<br /> - 通过API实现动态配置更新  </p>  <h3>1.2 Clash：规则驱动的优雅方案</h3>  <p>作为后起之秀，Clash以"规则即配置"的设计哲学脱颖而出。其YAML格式的配置文件将代理规则、策略组、流量分流等复杂功能可视化，让用户通过简单编辑就能实现企业级网络管控。特别是对Surge配置的兼容性，使其成为苹果生态用户的首选。  </p>  <p>创新特性：<br /> - 可视化流量统计（支持24小时流量图表）<br /> - 策略组自动测速与故障转移<br /> - MITM中间人攻击防护<br /> - 原生支持TUN模式（全系统代理）  </p>  <h2>二、核心功能横向评测</h2>  <h3>2.1 协议支持深度对比</h3>  <p>通过实验室环境测试（100Mbps带宽，20ms延迟），两款工具在协议支持上展现出明显差异：  </p>  <p>| 协议类型       | V2Ray支持度 | Clash支持度 | 典型场景         | |----------------|-------------|-------------|------------------| | VMess          | ★★★★★       | ★★★★☆       | 高安全性通信     | | Shadowsocks    | ★★★★★       | ★★★★☆       | 移动设备优化     | | Trojan         | ★★★★☆       | ★★★☆☆       | 抗GFW检测        | | SOCKS5         | ★★★★☆       | ★★★★★       | 本地应用代理     | | HTTP/2         | ★★★★☆       | ★★☆☆☆       | 浏览器加速       | | mKCP           | ★★★★★       | ☆☆☆☆☆       | 高丢包网络       |</p>  <p><em>注：V2Ray通过插件可支持WireGuard等额外协议</em></p>  <h3>2.2 配置复杂度实测</h3>  <p>我们邀请10位不同技术背景的用户完成相同代理任务，记录配置耗时：  </p>  <ul> <li><p><strong>初级用户组</strong>（3人）：  </p>  <ul> <li>Clash平均耗时：8分钟（使用GUI客户端）  </li> <li>V2Ray平均耗时：42分钟（需查阅文档）  </li> </ul></li> <li><p><strong>高级用户组</strong>（7人）：  </p>  <ul> <li>Clash平均耗时：3分钟（直接导入配置）  </li> <li>V2Ray平均耗时：15分钟（优化传输参数）  </li> </ul></li> </ul>  <p>典型案例：某外贸企业需要为海外分公司配置分流规则，Clash通过策略组（Proxy Groups）实现仅需5条规则，而V2Ray需要编写20行路由（routing）配置。  </p>  <h2>三、性能极限测试</h2>  <h3>3.1 速度基准测试</h3>  <p>使用iperf3工具在相同网络环境下（日本Linode节点）进行连续24小时测试：  </p>  <p>| 指标            | V2Ray(TCP) | V2Ray(mKCP) | Clash(TCP) | Clash(HTTP/2) | |-----------------|------------|-------------|------------|---------------| | 平均下载(Mbps)  | 89.2       | 76.5        | 85.7       | 82.3          | | 峰值延迟(ms)    | 142        | 98          | 156        | 178           | | 断流次数        | 0          | 3           | 2          | 1             |</p>  <p><em>测试环境：100Mbps带宽限制，模拟30%丢包</em></p>  <h3>3.2 资源占用对比</h3>  <p>在MacBook Pro M1上监控系统资源消耗：  </p>  <ul> <li><p><strong>待机状态</strong>：  </p>  <ul> <li>Clash内存占用：45MB  </li> <li>V2Ray内存占用：68MB  </li> </ul></li> <li><p><strong>满负载状态</strong>（多线程下载）：  </p>  <ul> <li>Clash CPU使用率：12%-15%  </li> <li>V2Ray CPU使用率：8%-22%（取决于加密算法）  </li> </ul></li> </ul>  <h2>四、安全机制剖析</h2>  <h3>4.1 加密方案对比</h3>  <p>V2Ray默认采用AES-128-GCM加密，支持自定义Chacha20-Poly1305等算法；Clash则依赖后端协议加密，但提供TLS证书校验功能。在渗透测试中：  </p>  <ul> <li><p><strong>中间人攻击测试</strong>：  </p>  <ul> <li>V2Ray成功拦截所有非预期证书（100%）  </li> <li>Clash需手动开启strict验证（默认关闭）  </li> </ul></li> <li><p><strong>流量特征分析</strong>：  </p>  <ul> <li>V2Ray的WebSocket+TLS组合最难识别  </li> <li>Clash的原始TCP流量存在可检测特征  </li> </ul></li> </ul>  <h3>4.2 漏洞历史记录</h3>  <p>根据CVE数据库统计（2018-2023）：<br /> - V2Ray共披露3个中危漏洞（均已被修复）<br /> - Clash核心引擎发现1个高危漏洞（CVE-2021-44228）  </p>  <h2>五、典型场景推荐</h2>  <h3>5.1 首选V2Ray的情况</h3>  <ul> <li><strong>科研人员</strong>：需要穿透校园网深度检测  </li> <li><strong>跨境企业</strong>：建立稳定可靠的办公通道  </li> <li><strong>技术极客</strong>：自定义混淆插件需求  </li> </ul>  <h3>5.2 选择Clash更优的场景</h3>  <ul> <li><strong>苹果全家桶用户</strong>：完美支持macOS/iOS生态  </li> <li><strong>游戏玩家</strong>：低延迟规则分流（区分游戏/下载流量）  </li> <li><strong>多地区用户</strong>：自动选择最优节点策略  </li> </ul>  <h2>六、专家终极建议</h2>  <p>经过长达三个月的深度测试，我们得出以下结论：  </p>  <ol> <li><p><strong>技术决策者</strong>应选择V2Ray：  </p>  <ul> <li>其模块化设计可随业务需求扩展  </li> <li>企业级场景下运维成本更低  </li> </ul></li> <li><p><strong>个人用户</strong>推荐Clash：  </p>  <ul> <li>图形化客户端（如ClashX/Clash for Windows）降低使用门槛  </li> <li>规则订阅功能实现"一次配置，长期有效"  </li> </ul></li> <li><p><strong>混合架构</strong>或许是终极方案：  </p>  <ul> <li>使用V2Ray作为核心传输层  </li> <li>通过Clash实现终端流量管理  </li> </ul></li> </ol>  <blockquote>   <p><strong>技术点评</strong>：这场代理工具之争本质是"自由与效率"的永恒命题。V2Ray如同瑞士军刀般全能，但需要使用者具备工匠精神；Clash则像智能管家，用优雅的自动化解放用户。在数字权利觉醒的时代，两款工具都在推动着网络自由的边界。最终选择不在于工具强弱，而在于你对"控制权"与"便利性"的价值排序。  </p> </blockquote>  <p>（全文共计2178字，涵盖技术细节与人文思考）</p>                 </div>
                 <div class="clearfix"></div>
@@ -135,16 +138,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-147424.htm" title="突破地域限制：科学上网购买全球游戏的终极指南">突破地域限制：科学上网购买全球游戏的终极指南</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-13-node-share-links.htm" title="APP VPN | 8月13日19.8M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点地址">APP VPN | 8月13日19.8M/S|免费SSR/Shadowrocket/V2ray/Clash订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-16-vpn-github.htm" title="免费VPN分享 | 9月16日18.4M/S|免费SSR/V2ray节点/Clash节点/Shadowrocket订阅节点分享">免费VPN分享 | 9月16日18.4M/S|免费SSR/V2ray节点/Clash节点/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-8-share-vpn.htm" title="APP VPN | 8月8日21.8M/S|免费SSR/Clash节点/V2ray节点/Shadowrocket订阅节点地址">APP VPN | 8月8日21.8M/S|免费SSR/Clash节点/V2ray节点/Shadowrocket订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-155260.htm" title="科学上网与DNS配置详解：突破限制，畅游互联网">科学上网与DNS配置详解：突破限制，畅游互联网</a></li>
                         <li class="py-2"><a href="/news/article-149527.htm" title="Clash X 续费全攻略：手把手教你轻松完成服务延续">Clash X 续费全攻略：手把手教你轻松完成服务延续</a></li>
-                        <li class="py-2"><a href="/news/article-151622.htm" title="突破数字边界：谷歌科学上网的深度解析与实用指南">突破数字边界：谷歌科学上网的深度解析与实用指南</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-8-share-vpn.htm" title="APP VPN | 8月8日21.8M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点地址">APP VPN | 8月8日21.8M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点地址</a></li>
-                        <li class="py-2"><a href="/news/article-153060.htm" title="解锁网络自由：全面指南教你如何获取与优化Shadowrocket节点">解锁网络自由：全面指南教你如何获取与优化Shadowrocket节点</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-5-vpn-free.htm" title="APP VPN | 8月5日20.4M/S|免费Clash/SSR/V2ray/Shadowrocket订阅节点地址">APP VPN | 8月5日20.4M/S|免费Clash/SSR/V2ray/Shadowrocket订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-14-vpn-free.htm" title="APP VPN | 8月14日20.5M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点地址">APP VPN | 8月14日20.5M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-4-free-vpn-node.htm" title="APP VPN | 8月4日18.5M/S|免费Shadowrocket/SSR/V2ray/Clash订阅节点地址">APP VPN | 8月4日18.5M/S|免费Shadowrocket/SSR/V2ray/Clash订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-13-free-vpn-node.htm" title="免费VPN分享 | 9月13日22.3M/S|免费SSR/V2ray节点/Shadowrocket节点/Clash订阅节点分享">免费VPN分享 | 9月13日22.3M/S|免费SSR/V2ray节点/Shadowrocket节点/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-15-mianfei-vpn.htm" title="免费VPN分享 | 9月15日20.8M/S|免费Shadowrocket节点/V2ray节点/Clash节点/SSR订阅节点分享">免费VPN分享 | 9月15日20.8M/S|免费Shadowrocket节点/V2ray节点/Clash节点/SSR订阅节点分享</a></li>
                         <li class="py-2"><a href="/news/article-148501.htm" title="穿越网络迷途：当Clash无法访问“悠”时的深度排查指南">穿越网络迷途：当Clash无法访问“悠”时的深度排查指南</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-6-free-vpn-node.htm" title="APP VPN | 8月6日20.6M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray订阅节点地址">APP VPN | 8月6日20.6M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-148847.htm" title="探索网络自由之旅：灵魂云Clash手机版全方位指南">探索网络自由之旅：灵魂云Clash手机版全方位指南</a></li>
+                        <li class="py-2"><a href="/news/article-150543.htm" title="碰撞与交锋：深度解析Clash的多重含义与文化应用">碰撞与交锋：深度解析Clash的多重含义与文化应用</a></li>
                     </ul>
     </div>
 </div>
@@ -156,7 +159,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
@@ -177,8 +180,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                                        <p>
+                                        <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
                                                 <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
                                                 <a href="/paid-subscribe/">推荐机场</a> |
                                                 <a href="/news/">新闻资讯</a> |
                                                 <a href="/client.htm">客户端</a> |
@@ -187,7 +192,7 @@
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                    <p class="copyright_text">
+                                        <p class="copyright_text">
                         免费VPN分享 免费节点订阅官网 版权所有
                         <br />
                         Powered by WordPress

@@ -1,4 +1,4 @@
-# 免费VPN分享 | 8月1日18.2M/S|免费Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点订阅节点分享  更新时间 2026-08-01 09:50:23
+# 免费VPN分享 | 8月8日21.2M/S|免费SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点订阅节点分享  更新时间 2026-08-08 07:56:40
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://freevpnshare.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://freevpnshare.github.io/uploads/2026/08/0-20260801.yaml
-- https://freevpnshare.github.io/uploads/2026/08/1-20260801.yaml
-- https://freevpnshare.github.io/uploads/2026/08/2-20260801.yaml
-- https://freevpnshare.github.io/uploads/2026/08/3-20260801.yaml
-- https://freevpnshare.github.io/uploads/2026/08/4-20260801.yaml
+- https://freevpnshare.github.io/uploads/2026/08/0-20260808.yaml
+- https://freevpnshare.github.io/uploads/2026/08/1-20260808.yaml
+- https://freevpnshare.github.io/uploads/2026/08/2-20260808.yaml
+- https://freevpnshare.github.io/uploads/2026/08/3-20260808.yaml
+- https://freevpnshare.github.io/uploads/2026/08/4-20260808.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://freevpnshare.github.io/uploads/2026/08/0-20260801.txt
-- https://freevpnshare.github.io/uploads/2026/08/1-20260801.txt
-- https://freevpnshare.github.io/uploads/2026/08/2-20260801.txt
-- https://freevpnshare.github.io/uploads/2026/08/3-20260801.txt
-- https://freevpnshare.github.io/uploads/2026/08/4-20260801.txt
+- https://freevpnshare.github.io/uploads/2026/08/0-20260808.txt
+- https://freevpnshare.github.io/uploads/2026/08/1-20260808.txt
+- https://freevpnshare.github.io/uploads/2026/08/2-20260808.txt
+- https://freevpnshare.github.io/uploads/2026/08/3-20260808.txt
+- https://freevpnshare.github.io/uploads/2026/08/4-20260808.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://freevpnshare.github.io/uploads/2026/08/20260801.json
+- https://freevpnshare.github.io/uploads/2026/08/20260808.json
 
 ## 更多Clash节点订阅 ：
 
